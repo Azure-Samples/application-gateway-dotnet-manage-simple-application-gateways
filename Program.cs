@@ -3,8 +3,8 @@
 
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Network.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using Microsoft.Azure.Management.Samples.Common;
 using System;
 using System.Diagnostics;
@@ -73,12 +73,12 @@ namespace ManageSimpleApplicationGateway
                             .FromPublicFrontend()
                             .FromFrontendHttpPort(80)
                             .ToBackendHttpPort(8080)
-                            .ToBackendIpAddress("11.1.1.1")
-                            .ToBackendIpAddress("11.1.1.2")
-                            .ToBackendIpAddress("11.1.1.3")
-                            .ToBackendIpAddress("11.1.1.4")
+                            .ToBackendIPAddress("11.1.1.1")
+                            .ToBackendIPAddress("11.1.1.2")
+                            .ToBackendIPAddress("11.1.1.3")
+                            .ToBackendIPAddress("11.1.1.4")
                             .Attach()
-                        .WithNewPublicIpAddress()
+                        .WithNewPublicIPAddress()
                         .Create();
 
                 t.Stop();
@@ -101,13 +101,15 @@ namespace ManageSimpleApplicationGateway
                         .DefineRequestRoutingRule("HTTPs-1443-to-8080")
                             .FromPublicFrontend()
                             .FromFrontendHttpsPort(1443)
-                            .WithSslCertificateFromPfxFile(new FileInfo("myTest._pfx"))
+                            .WithSslCertificateFromPfxFile(
+                                new FileInfo(
+                                    Utilities.GetCertificatePath("NetworkTestCertificate1.pfx")))
                             .WithSslCertificatePassword("Abc123")
                             .ToBackendHttpPort(8080)
-                            .ToBackendIpAddress("11.1.1.1")
-                            .ToBackendIpAddress("11.1.1.2")
-                            .ToBackendIpAddress("11.1.1.3")
-                            .ToBackendIpAddress("11.1.1.4")
+                            .ToBackendIPAddress("11.1.1.1")
+                            .ToBackendIPAddress("11.1.1.2")
+                            .ToBackendIPAddress("11.1.1.3")
+                            .ToBackendIPAddress("11.1.1.4")
                             .WithHostName("www.contoso.com")
                             .WithCookieBasedAffinity()
                             .Attach()
@@ -147,7 +149,7 @@ namespace ManageSimpleApplicationGateway
                 var credentials = SdkContext.AzureCredentialsFactory.FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
                 var azure = Azure.Configure()
-                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.BASIC)
+                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
                     .Authenticate(credentials)
                     .WithDefaultSubscription();
 
