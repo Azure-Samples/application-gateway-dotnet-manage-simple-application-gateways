@@ -1,2 +1,0 @@
-C:\Sources\dotnet-samples\application-gateway-dotnet-manage-simple-application-gateways\bin\Debug\netstandard1.6\ManageSimpleApplicationGateway.deps.json
-C:\Sources\dotnet-samples\application-gateway-dotnet-manage-simple-application-gateways\obj\Debug\netstandard1.6\ManageSimpleApplicationGateway.csproj.CoreCompileInputs.cache
