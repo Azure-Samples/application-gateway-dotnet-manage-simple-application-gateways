@@ -1,7 +1,7 @@
 ---
 services: Application
 platforms: .Net
-author: selvasingh
+author: martinsawicki
 ---
 
 # Getting Started with Application - Manage Simple Application Gateway - in .Net #
