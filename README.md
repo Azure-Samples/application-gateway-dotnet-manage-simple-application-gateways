@@ -1,10 +1,10 @@
 ---
-services: Application
-platforms: .Net
+services: virtual-network
+platforms: dotnet
 author: martinsawicki
 ---
 
-# Getting Started with Application - Manage Simple Application Gateway - in .Net #
+# Getting started on managing simple Application Gateways in C# #
 
           Azure network sample for managing application gateways.
          
@@ -47,7 +47,7 @@ author: martinsawicki
 
 To run this sample:
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md).
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md).
 
     git clone https://github.com/Azure-Samples/application-gateway-dotnet-manage-simple-application-gateways.git
 
