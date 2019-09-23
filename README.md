@@ -7,6 +7,7 @@ products:
 extensions:
 - services: virtual-network
 - platforms: dotnet
+description: "Azure network sample for managing application gateways."
 ---
 
 # Getting started on managing simple Application Gateways in C# #
